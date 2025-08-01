@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fake Phone Call</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            border-radius: 20px;
+            padding: 40px 30px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 400px;
+            width: 100%;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 30px;
+            font-size: 28px;
+            font-weight: 600;
+        }
+
+        .input-group {
+            margin-bottom: 25px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #555;
+            font-weight: 500;
+            text-align: left;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #e1e5e9;
+            border-radius: 12px;
+            font-size: 16px;
+            transition: border-color 0.3s ease;
+            outline: none;
+        }
+
+        input[type="text"]:focus {
+            border-color: #667eea;
+        }
+
+        .btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 12px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            width: 100%;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        .btn:active {
+            transform: translateY(0);
+        }
+
+        .btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .countdown {
+            margin-top: 20px;
+            font-size: 24px;
+            font-weight: 600;
+            color: #667eea;
+        }
+
+        .call-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            color: white;
+            animation: slideUp 0.5s ease-out;
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(100%);
+            }
+            to {
+                transform: translateY(0);
+            }
+        }
+
+        .call-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .call-status {
+            font-size: 18px;
+            opacity: 0.8;
+            margin-bottom: 10px;
+        }
+
+        .caller-name {
+            font-size: 32px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .caller-number {
+            font-size: 16px;
+            opacity: 0.7;
+        }
+
+        .call-avatar {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 60px;
+            font-weight: 600;
+            margin-bottom: 40px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.4);
+            }
+            70% {
+                transform: scale(1.05);
+                box-shadow: 0 0 0 20px rgba(255, 255, 255, 0);
+            }
+            100% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+            }
+        }
+
+        .call-actions {
+            display: flex;
+            gap: 60px;
+            margin-top: 60px;
+        }
+
+        .call-btn {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            transition: transform 0.2s ease;
+        }
+
+        .call-btn:hover {
+            transform: scale(1.1);
+        }
+
+        .decline-btn {
+            background: #ff4757;
+            color: white;
+        }
+
+        .accept-btn {
+            background: #2ed573;
+            color: white;
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        /* Mobile optimizations */
+        @media (max-width: 480px) {
+            .container {
+                padding: 30px 20px;
+                margin: 10px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+
+            .caller-name {
+                font-size: 28px;
+            }
+
+            .call-avatar {
+                width: 120px;
+                height: 120px;
+                font-size: 48px;
+            }
+
+            .call-actions {
+                gap: 40px;
+            }
+
+            .call-btn {
+                width: 60px;
+                height: 60px;
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="mainContainer">
+        <h1>📞 Fake Phone Call</h1>
+        
+        <div class="input-group">
+            <label for="callerName">Enter Caller Name:</label>
+            <input type="text" id="callerName" placeholder="e.g., Mom, Boss, Friend..." maxlength="30">
+        </div>
+        
+        <button class="btn" id="startBtn" onclick="startCountdown()"></button>
+           
+        
+        
+        <div class="countdown hidden" id="countdown"></div>
+    </div>
+
+    <div class="call-screen" id="callScreen">
+        <div class="call-header">
+            <div class="call-status">Incoming call</div>
+            <div class="caller-name" id="displayName">Unknown</div>
+            <div class="caller-number">+91 6250403817</div> 
+        </div>
+        
+        <div class="call-avatar" id="callerAvatar">
+            📞
+        </div>
+        
+        <div class="call-actions">
+            <button class="call-btn decline-btn" onclick="declineCall()" title="Decline">
+                ✕
+            </button>
+            <button class="call-btn accept-btn" onclick="acceptCall()" title="Accept">
+                ✓
+            </button>
+        </div>
+    </div>
+
+    <audio id="ringtone" loop preload="auto">
+        <source src="ringtone.mp3" type="audio/mpeg">
+        <!-- Fallback for browsers that don't support MP3 -->
+        Your browser does not support the audio element.
+    </audio>
+
+    <script>
+        let countdownInterval;
+        let ringtoneAudio;
+
+        // Initialize audio
+        document.addEventListener('DOMContentLoaded', function() {
+            ringtoneAudio = document.getElementById('ringtone');
+            
+            // Set volume to a reasonable level
+            ringtoneAudio.volume = 0.5;
+            
+            // Handle audio loading errors
+            ringtoneAudio.addEventListener('error', function() {
+                console.warn('Ringtone audio file not found. Call will work without sound.');
+            });
+        });
+
+        function startCountdown() {
+            const nameInput = document.getElementById('callerName');
+            const startBtn = document.getElementById('startBtn');
+            const countdownDiv = document.getElementById('countdown');
+            
+            // Validate input
+            if (!nameInput.value.trim()) {
+                alert('Please enter a caller name first!');
+                nameInput.focus();
+                return;
+            }
+            
+            // Disable button and show countdown
+            startBtn.disabled = true;
+            startBtn.textContent = 'Timer Running...';
+            countdownDiv.classList.remove('hidden');
+            
+            let timeLeft = 5; // 2 minutes in seconds
+            
+            // Update countdown display
+            function updateCountdown() {
+                const minutes = Math.floor(timeLeft / 60);
+                const seconds = timeLeft % 60;
+                countdownDiv.textContent = `${minutes}:${seconds.toString().padStart(2, '0')}`;
+                
+                if (timeLeft <= 0) {
+                    clearInterval(countdownInterval);
+                    showCall();
+                } else {
+                    timeLeft--;
+                }
+            }
+            
+            // Start countdown
+            updateCountdown();
+            countdownInterval = setInterval(updateCountdown, 1000);
+        }
+
+        function showCall() {
+            const nameInput = document.getElementById('callerName');
+            const displayName = document.getElementById('displayName');
+            const callerAvatar = document.getElementById('callerAvatar');
+            const callScreen = document.getElementById('callScreen');
+            
+            // Set caller name
+            const callerName = nameInput.value.trim() || 'Unknown';
+            displayName.textContent = callerName;
+            
+            // Set avatar initial
+            callerAvatar.textContent = callerName.charAt(0).toUpperCase();
+            
+            // Show call screen
+            callScreen.style.display = 'flex';
+            
+            // Play ringtone
+            playRingtone();
+        }
+
+        function playRingtone() {
+            if (ringtoneAudio) {
+                // Try to play audio (may be blocked by browser autoplay policy)
+                const playPromise = ringtoneAudio.play();
+                
+                if (playPromise !== undefined) {
+                    playPromise.catch(error => {
+                        console.warn('Autoplay was prevented. User interaction required to play audio.');
+                        // You could show a message to the user here
+                    });
+                }
+            }
+        }
+
+        function stopRingtone() {
+            if (ringtoneAudio) {
+                ringtoneAudio.pause();
+                ringtoneAudio.currentTime = 0;
+            }
+        }
+
+        function declineCall() {
+            hideCall();
+        }
+
+        function acceptCall() {
+            // You can add accept call functionality here
+            // For now, we'll just hide the call
+            hideCall();
+        }
+
+        function hideCall() {
+            const callScreen = document.getElementById('callScreen');
+            const startBtn = document.getElementById('startBtn');
+            const countdownDiv = document.getElementById('countdown');
+            const nameInput = document.getElementById('callerName');
+            
+            // Stop ringtone
+            stopRingtone();
+            
+            // Hide call screen
+            callScreen.style.display = 'none';
+            
+            // Reset UI
+            startBtn.disabled = false;
+            startBtn.textContent = 'Start 5-sec Timer';
+            countdownDiv.classList.add('hidden');
+            nameInput.value = '';
+            
+            // Clear any running countdown
+            if (countdownInterval) {
+                clearInterval(countdownInterval);
+            }
+        }
+
+        // Handle browser back button
+        window.addEventListener('popstate', function() {
+            const callScreen = document.getElementById('callScreen');
+            if (callScreen.style.display === 'flex') {
+                declineCall();
+            }
+        });
+
+        // Handle escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                const callScreen = document.getElementById('callScreen');
+                if (callScreen.style.display === 'flex') {
+                    declineCall();
+                }
+            }
+        });
+
+        // Prevent accidental page refresh during call
+        window.addEventListener('beforeunload', function(event) {
+            const callScreen = document.getElementById('callScreen');
+            if (callScreen.style.display === 'flex') {
+                event.preventDefault();
+                event.returnValue = '';
+            }
+        });
+    </script>
+</body>
+</html>
