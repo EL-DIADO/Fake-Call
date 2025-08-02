@@ -53,11 +53,9 @@ For Software:
 
 ### Project Demo
 # Video
-https://drive.google.com/file/d/10Bg540855IDU6Yo0SfPt9rrn7Fuf5kso/view?usp=drive_link
+https://drive.google.com/file/d/1nJbqgteVL3vE4U7yz9XCw6jThduqS-IH/view?usp=drive_link
 In this video we first enter the name of someone and click the start button then in 5 seconds in the it shows as someone is calling you..A Fake Call Prank!! 
 
-# Additional Demos
-[Add any extra demo materials/links]
 
 ## Team Contributions
 - [Jeyaprasad.K]: Finds the idea and make the front end and coded using versal..
