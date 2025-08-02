@@ -51,7 +51,7 @@ For Software:
 
 ### Project Documentation
 ![](https://github.com/EL-DIADO/Fake-Call/blob/2fa9881ad94b6a877746bf03ab70311fb6533432/Screenshot%202025-08-02%20055339.png)
-
+![](https://github.com/EL-DIADO/Fake-Call/blob/0923f9de4987d6ef54aa15bc6141d5925f4c024b/Screenshot%202025-08-02%20055350.png)
 ### Project Demo
 # Video
 https://drive.google.com/file/d/1nJbqgteVL3vE4U7yz9XCw6jThduqS-IH/view?usp=drive_link
