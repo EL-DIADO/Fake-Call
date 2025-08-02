@@ -1,96 +1,67 @@
 <img width="3188" height="1202" alt="frame (3)" src="https://github.com/user-attachments/assets/517ad8e9-ad22-457d-9538-a9e62d137cd7" />
 
 
-# [Project Name] 🎯
+# FAKE CALL!! 🎯
 
 
-## Basic Details
-### Team Name: [Name]
+## This website is used to enter a name of someone and the website would make it look like that person is calling you..
+### Team Name: Mugiwara
 
 
 ### Team Members
-- Team Lead: [Name] - [College]
-- Member 2: [Name] - [College]
-- Member 3: [Name] - [College]
+- Team Lead: Jeyaprasad.K - Mar Baselios Christian College of Engineering and Technology Peermade
+- Member 2: Christy Rony - Mar Baselios Christian College of Engineering and Technology Peermade
 
 ### Project Description
-[2-3 lines about what your project does]
+This website is used to enter a name of someone and the website would make it look like that person is calling you..
+iIt takes 5 sec to show the call and when you answer or decline il will again come to the home page.You could again enter new name.
 
 ### The Problem (that doesn't exist)
-[What ridiculous problem are you solving?]
+People sometimes need a fake phone call for fun, pranks, or to escape awkward situations. There’s no simple online tool to trigger a realistic fake call with a timer and sound.
 
 ### The Solution (that nobody asked for)
-[How are you solving it? Keep it fun!]
+A simple website where you enter a name, wait 5 seconds, and boom — a fake phone call appears with ringtone and caller name. Just for laughs, pranks, or a sneaky escape!
 
 ## Technical Details
 ### Technologies/Components Used
 For Software:
-- [Languages used]
+= >HTML
+=> CSS
+=> JavaScript
 - [Frameworks used]
-- [Libraries used]
-- [Tools used]
+   => None (Pure frontend project)
 
-For Hardware:
-- [List main components]
-- [List specifications]
-- [List tools required]
+- [Tools used]
+  => Visual Studio Code (code editor)
+  => Vercel (for free hosting)
+  => Chrome Developer Tools (for testing responsiveness
+
+
 
 ### Implementation
 For Software:
 # Installation
-[commands]
+1.Installation done via VS Studio
+2.Open via Chrome or any other platform
 
 # Run
-[commands]
+1.You can run it directly in your browser:
+2. Just drag and drop index.html into your browser window.
+
 
 ### Project Documentation
-For Software:
-
-# Screenshots (Add at least 3)
-![Screenshot1](Add screenshot 1 here with proper name)
-*Add caption explaining what this shows*
-
-![Screenshot2](Add screenshot 2 here with proper name)
-*Add caption explaining what this shows*
-
-![Screenshot3](Add screenshot 3 here with proper name)
-*Add caption explaining what this shows*
-
-# Diagrams
-![Workflow](Add your workflow/architecture diagram here)
-*Add caption explaining your workflow*
-
-For Hardware:
-
-# Schematic & Circuit
-![Circuit](Add your circuit diagram here)
-*Add caption explaining connections*
-
-![Schematic](Add your schematic diagram here)
-*Add caption explaining the schematic*
-
-# Build Photos
-![Components](Add photo of your components here)
-*List out all components shown*
-
-![Build](Add photos of build process here)
-*Explain the build steps*
-
-![Final](Add photo of final product here)
-*Explain the final build*
 
 ### Project Demo
 # Video
-[Add your demo video link here]
-*Explain what the video demonstrates*
+https://drive.google.com/file/d/10Bg540855IDU6Yo0SfPt9rrn7Fuf5kso/view?usp=drive_link
+In this video we first enter the name of someone and click the start button then in 5 seconds in the it shows as someone is calling you..A Fake Call Prank!! 
 
 # Additional Demos
 [Add any extra demo materials/links]
 
 ## Team Contributions
-- [Name 1]: [Specific contributions]
-- [Name 2]: [Specific contributions]
-- [Name 3]: [Specific contributions]
+- [Jeyaprasad.K]: Finds the idea and make the front end and coded using versal..
+- [Christy Rony]: Finds the materials required and supports in every way ..
 
 ---
 Made with ❤️ at TinkerHub Useless Projects 
